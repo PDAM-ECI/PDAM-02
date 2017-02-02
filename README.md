@@ -126,6 +126,8 @@ Instale la libreria [Angular localforage](https://github.com/ocombe/angular-loca
 bower i angular-localforage --save
 ```
 
+Si no puede instalar la libreria, descargue la carpeta de librerias completas [aca](http://gabo.com.co/pdam/lib.zip)
+
 Siga las instrucciones de la librería para inyectar el modulo y cargar los archivos necesarios. Ejemplo:
 
 app.js
