@@ -189,3 +189,4 @@ dentro de los dos controladores inyecte el servicio de $scope y el factory de us
 Dentro del controlador de UsersCtrl se tendrá la logica para listar los usuarios creados, y dentro del UsersEditCtrl se
 tendrá la logica para editar y crear nuevos usuarios.
 
+
