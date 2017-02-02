@@ -172,6 +172,11 @@ crear y listar los datos que se almacenan localmente. Para esto cree dos nuevos 
 * UsersEditCtrl
 
 dentro de los dos controladores inyecte el servicio de $scope y el factory de users que se creó anteriormente.
+Debe inyectar el módulo de servicios en su aplicación, para esto haga el siguiente ajuste.
+
+```javascript
+angular.module('starter', ['ionic', 'starter.controllers','starter.services', 'LocalForageModule'])
+```
 
 ```javascript
     ...
