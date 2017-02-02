@@ -39,4 +39,4 @@ La ultima parte será añadir en el menu lateral un vínculo a la nueva sección
 
 El resultado final debe ser:
 
-![alt text](http://www.giphy.com/gifs/26gskiARSbw06Em08)
+![alt text](http://i.giphy.com/26gskiARSbw06Em08.gif)
