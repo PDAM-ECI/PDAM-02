@@ -43,7 +43,7 @@ El resultado debe ser:
 
 ### Cargar información del API
 
-Para conectarnos con el API de prueba, inyectaremos el modulo "$http" de angular, este modulo permite hacer llamados 
+Para conectarnos con el API de prueba, inyectaremos el servicio "$http" de angular, este modulo permite hacer llamados 
 HTTP. Así mismo inyecte el modulo $log para poder depurar su código. 
 
 La logica de la aplicación debe estar ubicada dentro del controlador respectivo, en este caso usaremos el controlador
@@ -70,4 +70,122 @@ El resultado debe ser:
 
 ![alt text](http://i.giphy.com/26gsvxu1OafhHM7S0.gif)
 
-### Enviar informacion al API
+Para crear o borrar información puede usar el mismo servicio $http de angular para hacer llamados POST, PUT y DELETE. En
+este caso el API de prueba no soporta la persistencia o actualización de datos.
+
+# Manejo de datos locales
+
+Dentro de las aplicaciones móviles a diferencia de las aplicaciones web, se debe tener en cuenta que el dispositivo puede
+perder conectividad. Para esto se usa el almacenamiento local ya sea en memoria o en una base de datos local. Esto permite 
+que el usuario pueda usar la aplicación sin necesidad de tener conexión a internet.
+
+En las aplicaciones hibridas se pueden usar dos alternativas, plugins para interactuar con los servicios de persistencia
+nativos o usar los servicios de persistencia de los navegadores. Para este laboratorio usaremos las opciones del navegador
+para poder probar sin necesidad de un dispositivo real.
+
+Para este laboratorio crearemos usuarios localmente, para estructurar el código es necesario crear un factory de angular 
+que maneje la interacción con los usuarios.
+
+Cree el archivo "services.js" dentro de la carpeta www/js dentro de este archivo inserte el siguiente codigo.
+ 
+```javascript
+angular.module('starter.services', [])
+
+    .factory('UserFactory', function ($localForage) {
+        return {
+            createUser:function (username, name) {
+                
+            },
+            listUsers: function () {
+
+            }
+        }
+    });
+``` 
+
+Cargue el archivo desde el index.html
+
+```html
+    ...
+    
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    
+    <script src="js/services.js"></script>
+    
+    ...
+``` 
+
+Esto creará un modulo para agrupar los servicios y factories de la aplicación. Y tambien definirá el UserFactory. Usaremos
+este factory para manejar la persistencia de los datos de los usuarios. Haremos uso de una libreria que facilita el manejo
+de los diversos tipos de almacenamiento disponibles en los navegadores.
+
+Instale la libreria [Angular localforage](https://github.com/ocombe/angular-localForage) usando bower.
+
+```javascript
+bower i angular-localforage --save
+```
+
+Siga las instrucciones de la librería para inyectar el modulo y cargar los archivos necesarios. Ejemplo:
+
+app.js
+
+```javascript
+angular.module('starter', ['ionic', 'starter.controllers', 'LocalForageModule'])
+```
+
+index.html
+
+```html
+    ...
+    
+    <script src="lib/localforage/dist/localforage.min.js"></script>
+    <script src="lib/angular-localforage/dist/angular-localForage.min.js"></script>
+    
+    ...
+```
+
+Revise la aplicación en modo web y verifique que no hay errores en la consola.
+
+Dentro del UserFactory, implemente los metodos createUser y listUser. Para manejar la tabla de "usuarios" es necesario
+crear una instancia del localforage:
+
+```javascript
+    ...
+    
+    .factory('UserFactory', function ($localForage) {
+        var usersTable = $localForage.createInstance({
+            name: 'users'
+        });
+        
+    ...
+
+```
+
+usando los metodos setItem e iterate como lo indica la documentación de localforage, podemos implementar los métodos 
+necesarios en el factory. Una vez tenga estos métodos deberá implementar las vistas y controladores necesarios para
+crear y listar los datos que se almacenan localmente. Para esto cree dos nuevos controladores 
+
+* UsersCtrl
+* UsersEditCtrl
+
+dentro de los dos controladores inyecte el servicio de $scope y el factory de users que se creó anteriormente.
+
+```javascript
+    ...
+    
+    .controller('UsersCtrl', function ($scope, UserFactory) {
+            
+    })
+    
+    .controller('UsersEditCtrl', function ($scope, UserFactory) {
+        
+    })
+        
+    ...
+
+```
+
+Dentro del controlador de UsersCtrl se tendrá la logica para listar los usuarios creados, y dentro del UsersEditCtrl se
+tendrá la logica para editar y crear nuevos usuarios.
+
