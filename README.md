@@ -7,7 +7,7 @@ del proyecto final en ionic.
 
 Para comenzar instale un proyecto ionic con un template de prueba desde la linea de comandos:
 
-```javascript
+```bash
 ionic start pdam-2 sidemenu
 ```
 
@@ -122,7 +122,7 @@ de los diversos tipos de almacenamiento disponibles en los navegadores.
 
 Instale la libreria [Angular localforage](https://github.com/ocombe/angular-localForage) usando bower.
 
-```javascript
+```bash
 bower i angular-localforage --save
 ```
 
