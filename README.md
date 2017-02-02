@@ -37,6 +37,37 @@ controlador creados. La estado de la ruta debe tener el nombre "app.albums" y la
 La ultima parte será añadir en el menu lateral un vínculo a la nueva sección creada, para esto edite el archivo 
 "menu.html" apropiadamanete.
 
-El resultado final debe ser:
+El resultado debe ser:
 
 ![alt text](http://i.giphy.com/26gskiARSbw06Em08.gif)
+
+### Cargar información del API
+
+Para conectarnos con el API de prueba, inyectaremos el modulo "$http" de angular, este modulo permite hacer llamados 
+HTTP. Así mismo inyecte el modulo $log para poder depurar su código. 
+
+La logica de la aplicación debe estar ubicada dentro del controlador respectivo, en este caso usaremos el controlador
+de "albums". Las llamadas HTTP son asíncronas y retornan un objeto Promise. Usando el metodo 
+
+```javascript
+$http.get( ...
+```
+
+Haga un llamado GET al servicio https://jsonplaceholder.typicode.com/albums para obtener el listado de los albumes de 
+prueba. Una ves tenga esta informacion asignela a una variable del $scope que se llame albums, esto para poder vincularlos
+con la vista y mostrarlos el listado.
+
+Teniendo en cuenta que el usuario necesita información acerca de lo que la aplicación está haciendo, necesitamos usar un
+servicio de angular para mostrar que la aplicación esta cargando información. Consulte el uso del servicio 
+[$ionicLoading](https://ionicframework.com/docs/api/service/$ionicLoading/)
+
+Para simular un ambiente de red mas parecido a la realidad pude usar las herramientas de red de chrome para simular una 
+velocidad de red dentro de una red móvil, por ejemplo 4G.
+
+![alt text](http://i.giphy.com/26xBROAJgywbNMleo.gif)
+
+El resultado debe ser:
+
+![alt text](http://i.giphy.com/26gsvxu1OafhHM7S0.gif)
+
+### Enviar informacion al API
