@@ -189,4 +189,32 @@ dentro de los dos controladores inyecte el servicio de $scope y el factory de us
 Dentro del controlador de UsersCtrl se tendrá la logica para listar los usuarios creados, y dentro del UsersEditCtrl se
 tendrá la logica para editar y crear nuevos usuarios.
 
+El listado de usuarios debe verse como el siguiente ejemplo:
+
+![alt text](http://gabo.com.co/pdam/lab-02-01.png)
+
+para poner un icono en la barra superior investigue el uso de la siguiente directiva y revise los [iconos](http://ionicons.com/) 
+disponibles por defecto en ionic, estos iconos ya vienen incluidos en el template inicial que se descargó:
+
+```html
+    ...
+    
+    <ion-nav-buttons side="right">
+    ...
+```
+
+
+Cree las vistas correspondientes y las rutas adecuadas. La vista de crear un nuevo usuario debe contener dos campos:
+
+* email
+* name
+
+Use los componentes de ionic para formularios para crear el formulario de edicion/actualización del usuario.
+El formulario debe ser como el siguiente ejemplo:
+
+![alt text](http://gabo.com.co/pdam/lab-02-02.png)
+
+Usando el factory de usuarios, cree las funciones necesarias dentro de los controladores que permitan añadir usuarios.
+
+
 
