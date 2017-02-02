@@ -216,5 +216,11 @@ El formulario debe ser como el siguiente ejemplo:
 
 Usando el factory de usuarios, cree las funciones necesarias dentro de los controladores que permitan añadir usuarios.
 
+El resultado final debe ser:
+
+![alt text](http://i.giphy.com/l3q2z93VMg9Jf1XLG.gif)
+
+
+
 
 
